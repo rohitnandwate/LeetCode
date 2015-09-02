@@ -1,5 +1,10 @@
 package com.rhn.algorithms;
 
+/**
+ * https://leetcode.com/problems/median-of-two-sorted-arrays/
+ * @author rohitnandwate
+ *
+ */
 public class FindMedian {
 
 	/**

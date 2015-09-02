@@ -3,6 +3,11 @@ package com.rhn.algorithms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/two-sum/
+ * @author rohitnandwate
+ *
+ */
 public class TwoSum {
 	
 	public static void main(String args[]) {

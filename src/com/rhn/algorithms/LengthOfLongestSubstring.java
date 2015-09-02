@@ -2,8 +2,18 @@ package com.rhn.algorithms;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ * @author rohitnandwate
+ *
+ */
 public class LengthOfLongestSubstring {
 
+	/**
+	 * Return the length of the longest substring without repeating chars
+	 * @param str
+	 * @return
+	 */
 	public int lengthOfLongestSubstring(String str) {
 		int max = 0;
 		int start = 0;

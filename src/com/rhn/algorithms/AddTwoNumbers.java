@@ -1,5 +1,12 @@
 package com.rhn.algorithms;
 
+import com.rhn.algorithms.util.ListNode;
+
+/**
+ * https://leetcode.com/problems/add-two-numbers/
+ * @author rohitnandwate
+ *
+ */
 public class AddTwoNumbers {
 
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -28,11 +35,4 @@ public class AddTwoNumbers {
         	l3.next = new ListNode(1);
         return sol;
     }
-	
-	public class ListNode {
-		int val;
-    	ListNode next;
-    	ListNode(int x) { val = x; }
-	}
-
 }
