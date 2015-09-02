@@ -2,6 +2,7 @@ package com.rhn.algorithms;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
 import com.rhn.algorithms.util.ListNode;
 
@@ -35,24 +36,27 @@ public class MergeKSortedLists {
 			}
     	};
     	
-    	while(true) {
-    		Arrays.sort(lists, listNodeComp);
-    		if(lists[0] != null) {
-				while(lists[0]!= null) {
-					if(lists[1] == null || lists[0].val <= lists[1].val) {
-						if(merged == null) {
-							merged = lists[0];
-						} else {
-							mergedItr.next = lists[0];
-						}
-						mergedItr = lists[0];
-						lists[0] = lists[0].next;
-					} else {
-						break;
-					}
-				}
+    	PriorityQueue<ListNode> minHeap = new PriorityQueue<ListNode>(listNodeComp);
+    	for(ListNode n : lists) {
+    		if(n != null) {
+    			minHeap.add(n);
+    		}
+    	}
+    	
+    	while(!minHeap.isEmpty()) {
+    		ListNode smallest = minHeap.remove();
+    		if(smallest == null) {
+    			continue;
     		} else {
-    			break;
+    			if(merged == null) {
+    				merged = smallest;
+    			} else {
+    				mergedItr.next = smallest;
+    			}
+    			mergedItr = smallest;
+    		}
+    		if(smallest.next != null) {
+    			minHeap.add(smallest.next);
     		}
     	}
     	return merged;
