@@ -7,7 +7,6 @@ import com.rhn.algorithms.util.ListNode;
 public class MergeKSortedListsTest {
 
 	private MergeKSortedLists mergeK = new MergeKSortedLists();
-	private MergeTwoSortedLists merge2 = new MergeTwoSortedLists();
 	
 	@Test
 	public void test() {
