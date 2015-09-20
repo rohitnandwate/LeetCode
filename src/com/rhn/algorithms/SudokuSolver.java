@@ -33,31 +33,27 @@ public class SudokuSolver {
     	if(cnt == 81) {
     		return true;
     	}
-    	
-    	for(int i=cellNum/9; i < 9; ++i) {
-    		for(int j=cellNum%9; j < 9; ++j) {
-    			if(board[i][j] != '.') {
-    				cellNum++;
-    				continue;
-    			}
-    			List<Integer> availableNums = getAvailableNums(i, j, rmap, cmap, bmap);
-    			if(availableNums.isEmpty()) {
-    				return false;
-    			}
-    			for(Integer num : availableNums) {
-    				board[i][j] = (char) (num+'0');
-    				markUsed(num, i, j, rmap, cmap, bmap);
-    				if(helper(board, rmap, cmap, bmap,cellNum+1, cnt+1)){
-    					return true;
-    				} else {
-    					board[i][j] = '.';
-    					markUnUsed(num, i, j, rmap, cmap, bmap);
-    				}
-    			}
-    			return false;
-    		}
-    	}
-    	return true;
+    	int i=cellNum/9;
+    	int j=cellNum%9;
+		if(board[i][j] != '.') {
+			helper(board, rmap, cmap, bmap,cellNum+1, cnt);
+		} else {
+			List<Integer> availableNums = getAvailableNums(i, j, rmap, cmap, bmap);
+			if(availableNums.isEmpty()) {
+				return false;
+			}
+			for(Integer num : availableNums) {
+				board[i][j] = (char) (num+'0');
+				markUsed(num, i, j, rmap, cmap, bmap);
+				if(helper(board, rmap, cmap, bmap,cellNum+1, cnt+1)){
+					return true;
+				} else {
+					board[i][j] = '.';
+					markUnUsed(num, i, j, rmap, cmap, bmap);
+				}
+			}
+		}
+    	return false;
 	}
 
     private List<Integer> getAvailableNums(int row, int col, int[] rmap, int[]cmap, int[]bmap) {
