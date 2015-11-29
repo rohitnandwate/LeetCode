@@ -20,30 +20,6 @@ public class SudokuSolverTest {
 		}
 		solver.solveSudoku(board);
 		assertTrue(validator.isValidSudoku(board));
-		
-	}
-	
-	@Test
-	public void testMarkUsed() {
-		int[] rmap = {0,0,0,0,0,0,0,0,0};
-    	int[] cmap = {0,0,0,0,0,0,0,0,0};
-    	int[] bmap = {0,0,0,0,0,0,0,0,0};
-    	
-//    	markUsed(1,)
-	}
-
-	
-	@Test
-	public void testBits() {
-		int bitMask = 1;
-		int num = 0;
-		
-		for(int i=1; i<10; ++i) {
-			bitMask = 1;
-			bitMask = bitMask << i;
-			System.out.println("Bit mask: "+Integer.toBinaryString(bitMask));
-			num = num | bitMask;
-			System.out.println("Num: "+Integer.toBinaryString(num));
-		}
+		solver.print(board);
 	}
 }
