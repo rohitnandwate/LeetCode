@@ -20,6 +20,7 @@ public class SudokuSolverTest {
 		}
 		solver.solveSudoku(board);
 		assertTrue(validator.isValidSudoku(board));
-		
+
+		solver.print(board);
 	}
 }
